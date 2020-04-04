@@ -38,11 +38,11 @@ def test_mul_float() :
     assert result == 558 * 221.555
 
 def test_mul_zero() :
-    result = m.mul(558, 221)
+    result = m.mul(558, 0)
     assert result == 558 * 0
 
 def test_mul_minus() :
-    result = m.mul(558, 221)
+    result = m.mul(558, -55)
     assert result == 558 * -55
 
 def test_div() :
@@ -50,7 +50,7 @@ def test_div() :
     assert result == 558 / 221
 
 def test_div_float() :
-    result = m.div(558, 221)
+    result = m.div(558, 2.)
     assert result == 558 / 2.
 
 def test_div_float_2() :

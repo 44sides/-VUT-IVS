@@ -35,7 +35,7 @@ class Math_library(object) :
         return math.pow(x, y)
 
     @staticmethod
-    def log(x , y) : 
+    def log(x, y=10) : 
         return math.log(x , y)
 
     @staticmethod

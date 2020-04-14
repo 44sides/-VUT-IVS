@@ -1,4 +1,5 @@
 from src.math_library import Math_library as m
+import math
 import pytest
 
 def test_log() :

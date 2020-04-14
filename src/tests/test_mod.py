@@ -6,7 +6,7 @@ def test_mod() :
     assert result == 558 % 221
 
 def test_mod_float() :
-    result = m.mod(558, 221)
+    result = m.mod(558, 2)
     assert result == 558 % 2.
 
 def test_mod_float_2() :

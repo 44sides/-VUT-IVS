@@ -1,5 +1,6 @@
 from src.math_library import Math_library as m
 import pytest
+import math
 
 def test_ln() :
     result = m.ln(math.e)

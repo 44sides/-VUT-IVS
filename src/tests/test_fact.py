@@ -4,11 +4,7 @@ import pytest
 def test_fact() :
     result = m.fact(3)
     assert result == 6
-
-def test_fact_max() :
-    result = m.fact(170)
-    assert result == 7.257415615307998e+306
-
+    
 def test_fact_neg() :
     with pytest.raises(ValueError) :
         result = m.fact(-3)

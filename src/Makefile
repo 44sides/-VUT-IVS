@@ -1,9 +1,10 @@
 #IVS 2020
+PY=python
 
-PYTHON=python3
-
-
-.PHONY: test
+.PHONY: test gui
 
 test:
 	pytest tests/ --tb=line
+
+gui:
+	$(PY) gui/GUI.py

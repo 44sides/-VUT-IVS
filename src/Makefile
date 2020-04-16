@@ -1,10 +1,10 @@
 #IVS 2020
 PY=python
 
-.PHONY: test gui
+.PHONY: test gui run
 
 test:
 	pytest tests/ --tb=line
 
-gui:
-	$(PY) gui/GUI.py
+run:
+	$(PY) main.py

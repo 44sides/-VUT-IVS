@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from GUI import Ui_Calculator
+from gui.GUI import Ui_Calculator
 
 
 class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):

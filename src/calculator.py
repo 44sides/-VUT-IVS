@@ -8,6 +8,15 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         self.setupUi(self)
         self.show()
 
+        self.addHolding = False
+        self.substractHolding = False
+        self.multiplyHolding = False
+        self.divideHolding = False
+
+        self.windowClearing = False
+
+        self.answer = 0
+
         # operand > 13 cislic (max_length_input) nemozne v okne
         # vysledek > 17 znaku (max_length_output) nemozne v okne - preplneno
         self.max_length_input = 13
@@ -33,6 +42,13 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
 
         self.pushButton_plus_minus.clicked.connect(lambda: self.plus_minus_pressed())
 
+        self.pushButton_add.clicked.connect(lambda: self.binary_operation_pressed())
+        self.pushButton_substract.clicked.connect(lambda: self.binary_operation_pressed())
+        self.pushButton_multiply.clicked.connect(lambda: self.binary_operation_pressed())
+        self.pushButton_divide.clicked.connect(lambda: self.binary_operation_pressed())
+
+        self.pushButton_equal.clicked.connect(lambda: self.equal_pressed())
+
     def digit_pressed(self):
         # v pripade vyskytu znaku, menime max pocet a pak kontrolujeme (Kladen duraz na kontrolu pocetu cislic)
         if not (float(self.label_main.text())).is_integer():
@@ -40,17 +56,21 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         if self.label_main.text()[0] == '-':
             self.max_length_input = self.max_length_input + 1
 
-        if len(self.label_main.text()) < self.max_length_input:
+        if len(self.label_main.text()) < self.max_length_input or self.windowClearing:
 
             # dostavani znaku na tlacitku
             button = self.sender()
 
-            # osetreni moznosti vlozit '0' po tecce
-            if self.pointStatus and button.text() == "0":
-                new_label = self.label_main.text() + button.text()
+            if self.windowClearing:
+                new_label = format(float(button.text()), '.13g')
+                self.windowClearing = False
             else:
-                # utvoreni noveho lablu s dodatkem ve formatu .13g (vedecky, po 13 cislicich zkraceni do 'n'E+13)
-                new_label = format(float(self.label_main.text() + button.text()), '.13g')
+               # osetreni moznosti vlozit '0' po tecce
+                if self.pointStatus and button.text() == "0":
+                    new_label = self.label_main.text() + button.text()
+                else:
+                    # utvoreni noveho lablu s dodatkem ve formatu .13g (vedecky, po 13 cislicich zkraceni do 'n'E+x)
+                    new_label = format(float(self.label_main.text() + button.text()), '.13g')
             # ulozeni noveho lablu
             self.label_main.setText(new_label)
 
@@ -67,3 +87,72 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         # osetreni pripadu '-0'
         if self.label_main.text() != '0':
             self.label_main.setText(format(float(self.label_main.text()) * -1, '.13g'))
+
+    def binary_operation_pressed(self):
+        button = self.sender()
+        self.operand = float(self.label_main.text())
+
+        if self.addHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer + self.operand
+            self.holding_button_setting(button)
+        elif self.substractHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer - self.operand
+            self.holding_button_setting(button)
+        elif self.multiplyHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer * self.operand
+            self.holding_button_setting(button)
+        elif self.divideHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer / self.operand
+            self.holding_button_setting(button)
+        else:
+            self.answer = self.operand
+            self.holding_button_setting(button)
+
+        self.windowClearing = self.new_window_jump()
+
+    def equal_pressed(self):
+        self.operand = float(self.label_main.text())
+
+        if self.addHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer + self.operand
+        elif self.substractHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer - self.operand
+        elif self.multiplyHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer * self.operand
+        elif self.divideHolding:
+            self.holding_button_clearing()
+            self.answer = self.answer / self.operand
+        else:
+            self.answer = self.operand
+
+        self.label_main.setText(format(float(self.answer), '.13g'))
+        self.windowClearing = self.new_window_jump()
+
+
+    def holding_button_clearing(self):
+        self.addHolding = False
+        self.substractHolding = False
+        self.multiplyHolding = False
+        self.divideHolding = False
+
+    def holding_button_setting(self, button):
+        if button.text() == '+':
+            self.addHolding = True
+        elif button.text() == '−':
+            self.substractHolding = True
+        elif button.text() == '×':
+            self.multiplyHolding = True
+        elif button.text() == '÷':
+            self.divideHolding = True
+
+    def new_window_jump(self):
+        self.pointStatus = False
+        return True
+    

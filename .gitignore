@@ -2,3 +2,8 @@ LICENSE
 __pycache__
 *.pyc
 .cache
+.idea/vcs.xml
+
+.idea/modules.xml
+
+.idea/

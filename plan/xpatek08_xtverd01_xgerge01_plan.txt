@@ -1,0 +1,67 @@
+---------------------------------------------------------------------------------------------
+
+1) Terminy:
+
+ • 22. 4. 2020 – kostra programu a testy
+
+ • 31. 3. 2020 – implementace knihovny 
+
+ • 5. 4. 2020 – |Design| standardni mod
+
+ • 8. 4. 2020 – |Interface| spojovani knihovny s designem
+
+ • 12. 4. 2020 – |Profiling| vytvoreni vyberove smerodatne odchylky
+
+ • 13. 4. 2020 – Makefile, Instalator/Odinstalator 
+
+ • 17. 4. 2020 – dokumentace, Readme, ostatni .txt soubory, snimky 
+
+ • 22. 4. 2020 – vytvoreni mockup rozhrani dalsi verze kalkulacky
+
+ • 1. 5. 2020 – vytvoreni prezentaci
+
+ • 7. 5. 2020 – odvozeni problemu
+
+---------------------------------------------------------------------------------------------
+
+2) Prideleni ukolu jednotlivym resitelum:
+
+ • Patek Daniel	(xpatek08)    	        - Testy
+                                        - Dokumentace
+                                        - Makefile
+                                        - Instalator/Odinstalator
+
+ • Gergel Marek (xgerge01) 	        - GUI
+                                        - Mockup
+                                        - Matematicka knihovna
+
+ • Tverdokhlib Vladyslav (xtverd01)     - GUI
+                                        - Mockup
+                                        - Profiling
+					- Debugging
+
+ • Spolecne ulohy                       - Snimky, Readme, ostatni .txt soubory
+                                        - Prezentace
+					- Interface
+                                                       
+---------------------------------------------------------------------------------------------
+
+3) Komunikacni kanaly:
+
+	• Komunikacni nastroj: Discord
+
+	• Na serveru byly vytvoreny urcite kanaly pro trideni zprav a komunikacni kanal
+
+	• Koordinace schuzek v komunikacnim kanalu se provadi prostrednictvim chatu
+
+---------------------------------------------------------------------------------------------
+
+4) System pro spravu verzi a repozitar:
+
+	• System pro spravu verzi: GitHub
+
+	• Hosting: github.com
+
+	• URL: https://github.com/GargiMan/ivsproject
+
+	• Pristup byl pridelen uctu "ivskontrola"

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'calc.ui'
+# Form implementation generated from reading ui file 'gui_calc_new.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -119,7 +119,7 @@ class Ui_Calculator(object):
         self.pushButton_add.setStyleSheet("background-color: rgb(185, 185, 185)")
         self.pushButton_add.setObjectName("pushButton_add")
         self.pushButton_equal = QtWidgets.QPushButton(Calculator)
-        self.pushButton_equal.setGeometry(QtCore.QRect(85, 95, 220, 50))
+        self.pushButton_equal.setGeometry(QtCore.QRect(160, 95, 145, 50))
         font = QtGui.QFont()
         font.setFamily("Tahoma")
         font.setPointSize(16)
@@ -193,20 +193,21 @@ class Ui_Calculator(object):
         self.pushButton_clear.setMouseTracking(False)
         self.pushButton_clear.setAutoFillBackground(False)
         self.pushButton_clear.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: #800000;")
+"background-color: #B22222;")
         self.pushButton_clear.setAutoRepeat(False)
         self.pushButton_clear.setAutoExclusive(False)
         self.pushButton_clear.setObjectName("pushButton_clear")
-        self.pushButton_TBA = QtWidgets.QPushButton(Calculator)
-        self.pushButton_TBA.setGeometry(QtCore.QRect(235, 155, 70, 50))
+        self.pushButton_save = QtWidgets.QPushButton(Calculator)
+        self.pushButton_save.setGeometry(QtCore.QRect(235, 155, 70, 50))
         font = QtGui.QFont()
         font.setFamily("Tahoma")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_TBA.setFont(font)
-        self.pushButton_TBA.setStyleSheet("background-color: rgb(150, 150, 150)")
-        self.pushButton_TBA.setObjectName("pushButton_TBA")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pushButton_save.setFont(font)
+        self.pushButton_save.setStyleSheet("color: #363663;\n"
+"background-color: rgb(150, 150, 150)")
+        self.pushButton_save.setObjectName("pushButton_save")
         self.pushButton_factorial = QtWidgets.QPushButton(Calculator)
         self.pushButton_factorial.setGeometry(QtCore.QRect(10, 155, 70, 50))
         font = QtGui.QFont()
@@ -245,13 +246,28 @@ class Ui_Calculator(object):
         self.label_upper.setFont(font)
         self.label_upper.setStyleSheet("qproperty-alignment: \'AlignVCenter | AlignRight\';")
         self.label_upper.setObjectName("label_upper")
+        self.pushButton_backspace = QtWidgets.QPushButton(Calculator)
+        self.pushButton_backspace.setGeometry(QtCore.QRect(85, 95, 70, 50))
+        font = QtGui.QFont()
+        font.setFamily("Tahoma")
+        font.setPointSize(28)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_backspace.setFont(font)
+        self.pushButton_backspace.setMouseTracking(False)
+        self.pushButton_backspace.setAutoFillBackground(False)
+        self.pushButton_backspace.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: #708090;")
+        self.pushButton_backspace.setAutoRepeat(False)
+        self.pushButton_backspace.setAutoExclusive(False)
+        self.pushButton_backspace.setObjectName("pushButton_backspace")
 
         self.retranslateUi(Calculator)
         QtCore.QMetaObject.connectSlotsByName(Calculator)
 
     def retranslateUi(self, Calculator):
         _translate = QtCore.QCoreApplication.translate
-        Calculator.setWindowTitle(_translate("Calculator", "Calculator"))
+        Calculator.setWindowTitle(_translate("Calculator", "Form"))
         self.label_main.setText(_translate("Calculator", "0"))
         self.pushButton_7.setText(_translate("Calculator", "7"))
         self.pushButton_8.setText(_translate("Calculator", "8"))
@@ -271,18 +287,9 @@ class Ui_Calculator(object):
         self.pushButton_0.setText(_translate("Calculator", "0"))
         self.pushButton_point.setText(_translate("Calculator", "."))
         self.pushButton_clear.setText(_translate("Calculator", "C"))
-        self.pushButton_TBA.setText(_translate("Calculator", "TBA"))
+        self.pushButton_save.setText(_translate("Calculator", "🖬"))
         self.pushButton_factorial.setText(_translate("Calculator", "n!"))
         self.pushButton_power.setText(_translate("Calculator", "xʸ"))
         self.pushButton_root.setText(_translate("Calculator", "ⁿ√x"))
-        self.label_upper.setText(_translate("Calculator", "0"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Calculator = QtWidgets.QWidget()
-    ui = Ui_Calculator()
-    ui.setupUi(Calculator)
-    Calculator.show()
-    sys.exit(app.exec_())
+        self.label_upper.setText(_translate("Calculator", ""))
+        self.pushButton_backspace.setText(_translate("Calculator", "🠔"))

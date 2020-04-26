@@ -24,15 +24,31 @@ class Math_library(object) :
 
     @staticmethod
     def fact(x) :
-        return math.factorial(x)
+        if x < 0:
+            raise ValueError
+            return 0
+        elif x == 0 or x == 1:
+            return 1
+        else :
+            fact = 1
+            while(x > 1):
+                fact *= x
+                x -= 1
+            if x > 0 and x < 1:
+                raise ValueError
+                return
+            return fact
 
     @staticmethod
     def root(x) :
-        return math.sqrt(x)
+        if x < 0:
+            raise ValueError
+            return
+        return x ** 0.5
 
     @staticmethod
     def pow(x , y) :
-        return math.pow(x, y)
+        return x ** y
 
     @staticmethod
     def log(x, y=10) : 

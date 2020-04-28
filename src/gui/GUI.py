@@ -267,7 +267,8 @@ class Ui_Calculator(object):
 
     def retranslateUi(self, Calculator):
         _translate = QtCore.QCoreApplication.translate
-        Calculator.setWindowTitle(_translate("Calculator", "Form"))
+        Calculator.setWindowTitle(_translate("Calculator", "Pocket Calc"))
+        Calculator.setFixedSize(315, 435)
         self.label_main.setText(_translate("Calculator", "0"))
         self.pushButton_7.setText(_translate("Calculator", "7"))
         self.pushButton_8.setText(_translate("Calculator", "8"))

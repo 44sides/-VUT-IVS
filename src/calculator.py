@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-import math_library
+from math_library import Math_library as math_library
 from gui.GUI import Ui_Calculator
 
 

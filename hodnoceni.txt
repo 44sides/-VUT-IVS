@@ -1,0 +1,4 @@
+xpatek08 100 (Makefile, testy, dokumentace, Readme)
+xgerge01 100 (trello, repozitář, matematická knihovna, GUI)
+xtverd01 100 (GUI, Kalkulačka, Profiling)
+xpopos00 100 (instalátor, dokumentace)

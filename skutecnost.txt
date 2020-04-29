@@ -1,0 +1,7 @@
+ROZDÍLY MEZI SKUTEČNOSTÍ A PLÁNEM
+
+1. Některé testy pro TDD nebyly vůbec potřeba a jiné se musely v průběhu práce předělávat.
+
+2. Nepodařilo se nám dodržet všechny termíny, což bylo způsobeno především prací na jiných projektech a špatným odhadem náročnosti jednotlivých úloh.
+
+3. Makefile byl dokončen až skoro jako poslední věc, především kvůli vývoji v IDE.

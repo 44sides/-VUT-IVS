@@ -1,7 +1,7 @@
-# @file standart_deviation.py
+## @file standart_deviation.py
 # @brief Calculation of Standart deviation
-# @see math_library.py
-# @pre The data file consists of a number on each line and is readable
+# @see math_library.Math_library
+# @pre The data file consists of a number on each line and it is readable
 # @post Printing of standart deviation
 
 from math_library import Math_library as math
@@ -23,4 +23,3 @@ mean = math.div(sum_nums, N)
 result = math.n_root(math.div(math.sub(sum_sqrt_nums, math.mul(N, math.pow(mean, 2))), math.sub(N, 1)), 2)
 
 print(result)
-

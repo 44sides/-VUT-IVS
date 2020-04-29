@@ -1,0 +1,10 @@
+Vidíme, že většinu času trávíme importem matematické knihovny.
+Na druhém místě je v podstatě funkce 'next' modulu 'fileinput'.
+
+pow: 5.02, 6.73, 6.44.
+Podle změny stráveného času můžeme předpokládat, že na začátku seznamu čísel jsou hodnoty, které jsou problematicky se umocňují.
+
+Také jsme si všimli, že čas strávený v Windowsu a Linuxu je různý. V Windows se tráví 3krat víc času než na Linuxu, protože v Windows se volá více funkcí.
+
+
+Pro optimizaci programu bych pokračoval v hledání problematických čísel pro mocninu, bych našel víc modulů pro načítání textu ze souboru a porovnal je, a bych zohledňoval v budoucnosti rozdíl mezi Windowsem a Linuxem.

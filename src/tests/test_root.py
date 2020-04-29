@@ -18,10 +18,6 @@ def test_root_neg() :
     with pytest.raises(ValueError) :
         result = m.n_root(-55, 2)
 
-def test_root_neg_2() :
-    with pytest.raises(ValueError) :
-        result = m.n_root(55, -2)
-
 def test_root_zero() :
     result = m.n_root(2, 0)
     assert result == 0

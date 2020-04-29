@@ -48,12 +48,18 @@ class Math_library(object):
 
     ## @brief Common root
     @staticmethod
-    def n_root(x, root_value):
-        if x < 0:
-            raise ValueError
-        if root_value == 0:
-            return 0
-        return round(x ** (1 / float(root_value)), 13)
+    def n_root(x, root_value):                                                                                                                
+        if x < 0 and root_value % 2 == 0:                                                                                                     
+            raise ValueError                                                                                                                  
+                                                                                                                                              
+        if root_value == 0:                                                                                                                   
+            return 0                                                                                                                          
+                                                                                                                                              
+        if x >= 0:                                                                                                                            
+            return round(x ** (1 / float(root_value)), 13)                                                                                    
+        elif x < 0 and root_value % 2 == 1:                                                                                                   
+            complex_value = x ** (1 / float(root_value))                                                                                      
+            return round(Math_library.n_root(Math_library.pow(complex_value.real, 2) + Math_library.pow(complex_value.imag, 2), 2) * -1, 13)  
 
     ## @brief Power
     @staticmethod

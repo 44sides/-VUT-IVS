@@ -1,49 +1,80 @@
+## @file calculator.py
+# @brief Implementation of a controller
+# @see math_library.Math_library
+# @see GUI.Ui_Calculator
+# @pre Functional and tested math library, GUI
+# @package CalculatorPack
+
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
 from math_library import Math_library as math_library
 from gui.GUI import Ui_Calculator
 
 
+## @class CalculatorWindow
+# @brief The controller of the calculator
 class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
         self.show()
 
+        ## Window behavior indicator
         self.text = False
+        ## Window behavior indicator
         self.OverFlowError = False
+        ## Window behavior indicator
         self.TryBranch = False
+        ## Window behavior indicator
         self.NULLInsert = True
-
-        self.specialHolding = False
-        self.specialEntry = False
-        self.specialButtonClickedCounter = 0
-
-        self.addHolding = False
-        self.substractHolding = False
-        self.multiplyHolding = False
-        self.divideHolding = False
-        self.powerHolding = False
-        self.rootHolding = False
-
+        ## Window behavior indicator
         self.windowClearing = False
 
+        ## Holding special buttons indicator
+        self.specialHolding = False
+        ## Holding special buttons indicator
+        self.specialEntry = False
+        ## Holding special buttons indicator
+        self.specialButtonClickedCounter = 0
+
+        ## Holding buttons indicator
+        self.addHolding = False
+        ## Holding buttons indicator
+        self.substractHolding = False
+        ## Holding buttons indicator
+        self.multiplyHolding = False
+        ## Holding buttons indicator
+        self.divideHolding = False
+        ## Holding buttons indicator
+        self.powerHolding = False
+        ## Holding buttons indicator
+        self.rootHolding = False
+
+        ## Variable for calculation
         self.operand = 0
+        ## Variable for calculation
         self.first_special_operand = 0
+        ## Variable for calculation
         self.second_special_operand = 0
+        ## Variable for calculation
         self.answer = 0
+        ## Variable for calculation
         self.num = None
+        ## Variable for calculation
         self.num_counter = 0
 
+        ## Variable for saving
         self.saving = None
 
-        # operand > 13 cislic (max_length_input) nemozne v okne
+        ## Operand with >13 digits cant be
         self.max_length_input = 13
 
-        # status tecky a plus/minus
+        ## Point indicator
         self.pointStatus = False
+        ## Plus-minus indicator
         self.plus_minusStatus = False
 
-        # Connect buttons
         self.pushButton_0.clicked.connect(lambda: self.digit_pressed())
         self.pushButton_1.clicked.connect(lambda: self.digit_pressed())
         self.pushButton_2.clicked.connect(lambda: self.digit_pressed())
@@ -73,8 +104,13 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         self.pushButton_backspace.clicked.connect(lambda: self.backspace_pressed())
         self.pushButton_save.clicked.connect(lambda: self.save_pressed())
 
+        self.info.clicked.connect(lambda: self.info_pressed())
+
         self.pushButton_save.setCheckable(True)
 
+    ## Correctly transfers a digit to the main window
+    # @param Digit
+    # @brief Keystroke processing
     def digit_pressed(self):
         # v pripade vyskytu znaku, menime max pocet a pak kontrolujeme (Kladen duraz na kontrolu pocetu cislic)
         if not self.text:
@@ -106,6 +142,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         # obnoveni max pocetu
         self.max_length_input = 13
 
+    ## Checks if a point can be entered
+    # @brief Point Click Processing
     def point_pressed(self):
         # nastaveni po objeveni tecky
         if self.windowClearing:
@@ -115,6 +153,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             self.label_main.setText(self.label_main.text() + '.')
             self.pointStatus = True
 
+    ## Cases when the 'plus-minus' button is not appropriate
+    # @brief Plus-Minus Click Processing
     def plus_minus_pressed(self):
         if self.label_main.text() == 'ERROR':
             self.clear_pressed()
@@ -123,6 +163,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             if self.label_main.text() != '0':
                 self.label_main.setText(format(float(self.label_main.text()) * -1, '.13g'))
 
+    ## Consideration of departures when calculating factorial and calculating factorial
+    # @brief Factorial Click Processing
     def fact_pressed(self):
         if self.label_main.text() == 'ERROR':
             self.clear_pressed()
@@ -139,6 +181,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
                 self.label_main.setText(new_label)
                 self.windowClearing = self.new_window_jump()
 
+    ## The completion of one operation, the conclusion of the result and the preparation of indicators for another
+    # @brief Binary Operation Click Processing
     def binary_operation_pressed(self):
         if self.text:
             self.label_upper.setText("")
@@ -205,6 +249,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
                 self.NULLInsert = False
                 self.clear_pressed()
 
+    ## Completion of the last operation and conclusion of the final result
+    # @brief Equals Click Processing
     def equal_pressed(self):
         self.label_upper.setText(self.label_upper.text() + self.label_main.text())
         self.operand = float(self.label_main.text())
@@ -268,6 +314,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         self.NULLInsert = False
         self.clear_pressed()
 
+    ## Setting all indicators to False (and clearing a window)
+    # @brief Clear Click Processing
     def clear_pressed(self):
         self.holding_button_clearing()
         self.specialHolding = False
@@ -286,6 +334,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             self.windowClearing = self.new_window_jump()
             self.NULLInsert = True
 
+    ## Setting all holding buttons indicators to False
+    # @brief Holding Buttons clearing
     def holding_button_clearing(self):
         self.addHolding = False
         self.substractHolding = False
@@ -295,6 +345,9 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         self.powerHolding = False
         self.rootHolding = False
 
+    ## Setting True to the button of the binary operation that was pressed
+    # @brief Holding pressed binary button in a memory
+    # @param button Code of pressed button
     def holding_button_setting(self, button):
         if button.text() == '+':
             self.addHolding = True
@@ -309,6 +362,10 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         elif button.text() == 'ⁿ√x':
             self.rootHolding = True
 
+    ## Remembering the first operand and assigning status if a special operation is pressed
+    # @brief Enabling calculation behavior in a special operation
+    # @return 'True' if special button pressed
+    # @param button Code of pressed button
     def special_button_check(self, button):
         if button.text() == 'xʸ' or button.text() == 'ⁿ√x':
             self.first_special_operand = float(self.label_main.text())
@@ -317,6 +374,12 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         else:
             return False
 
+    ## Exception Check and Calculation
+    # @brief Special operations calculation
+    # @return special operation value
+    # @param first First operand of special operations
+    # @param second Second operand of special operations
+    # @param trying Status of exception check
     def special_calculation(self, first, second, trying):
         if self.powerHolding:
             if not trying:
@@ -331,10 +394,14 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             else:
                 return math_library.n_root(first, second)
 
+    ## @brief Assigning status when moving to a new window
+    # @return True
     def new_window_jump(self):
         self.pointStatus = False
         return True
 
+    ## Long operation input
+    # @brief Connection of operands
     def operands_connection(self):
         if self.addHolding:
             self.holding_button_clearing()
@@ -354,6 +421,10 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         self.label_main.setText(format(float(self.answer), '.13g'))
         self.windowClearing = self.new_window_jump()
 
+    ## @brief Checking for a large number and possible error output
+    # @return 'True' if overflow
+    # @param overflow Status of overflow
+    # @param answer Answer for checking
     def overflow_check(self, overflow, answer):
         if overflow or answer >= math_library.pow(2, 1018):
             self.label_main.setText("ERROR")
@@ -363,6 +434,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         else:
             return False
 
+    ## Delete last digit
+    # @brief Backspace Click Processing
     def backspace_pressed(self):
         if len(self.label_main.text()) == 1:
             self.label_main.setText('0')
@@ -373,6 +446,8 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             for i in range(1, self.num_counter - 1):
                 self.label_main.setText(self.label_main.text() + self.num[i])
 
+    ## Storing numbers in memory
+    # @brief Save Click Processing
     def save_pressed(self):
         if self.pushButton_save.isChecked() and not self.label_main.text() == 'ERROR':
             self.saving = self.label_main.text()
@@ -382,6 +457,10 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         else:
             self.label_main.setText(self.saving)
 
+    ## Check whether to change sign, and write the number and operation in the log
+    # @brief Log record Processing
+    # @param num Number to be logged
+    # @param sign Sign for verification
     def log_insert(self, num, sign):
         if sign == 'xʸ':
             sign = '^'
@@ -392,3 +471,15 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
         num = str(num)
         new_upper_label = num + ' ' + sign + ' '
         self.label_upper.setText(self.label_upper.text() + new_upper_label)
+
+    ## @brief Help output
+    def info_pressed(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Pocket Calc, version 1.0. (2020)")
+        msg.setInformativeText(
+            "The application was created for calculations that do not exceed the result of 2 ^ 1018.\nThe maximum operand size is 13.\n\nFor a description of the buttons, go to the detailed description.")
+        msg.setWindowTitle("Information")
+        msg.setDetailedText(
+            "[C] - Clear\n[🠔] - Backspace\n[=] - Equals\n\n[n!] - Factorial of n\n[xʸ] - x to the power of y\n[ⁿ√x] - nth root of x\n\n[🖬] - Save the value in the window. The next time you press, the value will be inserted\n\n[0-9] - Digits\n\n[÷] - Divide\n[×] - Multiply\n[−] - Substract\n[+] - Add\n[±] - Convert to positive/negative\n[.] - Dot")
+        msg.exec_()

@@ -20,6 +20,7 @@ all: run ;
 pack: ; 
 
 #todo clean generated files
+#REMOVE PYTHON CACHE
 clean: 
 	if exist __pycache__ $(RMDIR) __pycache__
 	if exist .cache $(RMDIR) .cache

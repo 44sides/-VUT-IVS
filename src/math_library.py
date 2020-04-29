@@ -48,9 +48,12 @@ class Math_library(object):
 
     ## @brief Common root
     @staticmethod
-    def n_root(x, y):
-        r_pow = Math_library.div(1, y)
-        return x ** r_pow
+    def n_root(x, root_value):
+        if x <= 0 or root_value < 0:
+            raise ValueError
+        if root_value == 0:
+            return 0
+        return round(x ** (1 / float(root_value)), 13)
 
     ## @brief Power
     @staticmethod

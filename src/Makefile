@@ -43,7 +43,7 @@ clean:
 	if exist tests/__pycache__ $(RMDIR) tests\__pycache__
 	if exist documentation $(RMDIR) documentation
 	if exist ..\..\xpatek08_xgerge01_xtverd01_xpopos00 $(RMDIR) ..\..\xpatek08_xgerge01_xtverd01_xpopos00
-	del *.pyc tests\*.pyc gui\*.pyc 2>nul
+	$(RM) *.pyc tests\*.pyc gui\*.pyc 2>nul
 
 # Test math library using pytest
 # Testing only works on Linux (Ubuntu, WSL) - using pytest

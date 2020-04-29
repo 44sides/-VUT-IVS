@@ -49,7 +49,7 @@ class Math_library(object):
     ## @brief Common root
     @staticmethod
     def n_root(x, root_value):
-        if x <= 0 or root_value < 0:
+        if x < 0 or root_value < 0:
             raise ValueError
         if root_value == 0:
             return 0

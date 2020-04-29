@@ -389,7 +389,7 @@ class CalculatorWindow(QtWidgets.QMainWindow, Ui_Calculator):
             if not trying:
                 self.rootHolding = False
 
-            if first < 0 and second % 2 == 0:
+            if first < 0:
                 self.OverFlowError = True
             else:
                 return math_library.n_root(first, second)

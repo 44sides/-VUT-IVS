@@ -1,15 +1,21 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui_calc_new.ui'
+# Form implementation generated from reading ui file 'GUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
+## @file GUI.py
+# @brief Graphical Interface
+# @package CalculatorPack
+
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
+## @class Ui_Calculator
+# @brief Graphics settings generated in the designer
 class Ui_Calculator(object):
     def setupUi(self, Calculator):
         Calculator.setObjectName("Calculator")
@@ -206,7 +212,7 @@ class Ui_Calculator(object):
         font.setWeight(50)
         self.pushButton_save.setFont(font)
         self.pushButton_save.setStyleSheet("color: #363663;\n"
-"background-color: rgb(150, 150, 150)")
+"background-color: rgb(150, 150, 150);")
         self.pushButton_save.setObjectName("pushButton_save")
         self.pushButton_factorial = QtWidgets.QPushButton(Calculator)
         self.pushButton_factorial.setGeometry(QtCore.QRect(10, 155, 70, 50))
@@ -239,12 +245,13 @@ class Ui_Calculator(object):
         self.pushButton_root.setStyleSheet("background-color: rgb(150, 150, 150)")
         self.pushButton_root.setObjectName("pushButton_root")
         self.label_upper = QtWidgets.QLabel(Calculator)
-        self.label_upper.setGeometry(QtCore.QRect(10, 5, 295, 20))
+        self.label_upper.setGeometry(QtCore.QRect(20, 5, 285, 20))
         font = QtGui.QFont()
         font.setFamily("Tahoma")
         font.setPointSize(10)
         self.label_upper.setFont(font)
         self.label_upper.setStyleSheet("qproperty-alignment: \'AlignVCenter | AlignRight\';")
+        self.label_upper.setText("")
         self.label_upper.setObjectName("label_upper")
         self.pushButton_backspace = QtWidgets.QPushButton(Calculator)
         self.pushButton_backspace.setGeometry(QtCore.QRect(85, 95, 70, 50))
@@ -261,6 +268,17 @@ class Ui_Calculator(object):
         self.pushButton_backspace.setAutoRepeat(False)
         self.pushButton_backspace.setAutoExclusive(False)
         self.pushButton_backspace.setObjectName("pushButton_backspace")
+        self.info = QtWidgets.QPushButton(Calculator)
+        self.info.setEnabled(True)
+        self.info.setGeometry(QtCore.QRect(0, 0, 20, 31))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.info.setFont(font)
+        self.info.setMouseTracking(False)
+        self.info.setObjectName("info")
 
         self.retranslateUi(Calculator)
         QtCore.QMetaObject.connectSlotsByName(Calculator)
@@ -292,5 +310,5 @@ class Ui_Calculator(object):
         self.pushButton_factorial.setText(_translate("Calculator", "n!"))
         self.pushButton_power.setText(_translate("Calculator", "xʸ"))
         self.pushButton_root.setText(_translate("Calculator", "ⁿ√x"))
-        self.label_upper.setText(_translate("Calculator", ""))
         self.pushButton_backspace.setText(_translate("Calculator", "🠔"))
+        self.info.setText(_translate("Calculator", "i"))

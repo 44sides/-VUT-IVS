@@ -11,13 +11,13 @@ PY=python
 RM=del
 RMDIR=rmdir /S/Q
 
-.PHONY: all test run clean doc profile
+.PHONY: all test run clean doc profile createfolder zipfolder
 
 # All target is empty -> python project doesnt have to be compiled
 all: run ; 
 
-#todo make archive for submitting
-pack: doc createfolder zipfolder; 
+# make archive for submitting
+pack: createfolder zipfolder ; 
 
 #create folder for zipping
 createfolder: 
@@ -32,15 +32,18 @@ createfolder:
 
 #zip the folder
 zipfolder:
-	cd ..\.. && 
+	powershell "Compress-Archive -Force -Path ..\..\xpatek08_xgerge01_xtverd01_xpopos00 -DestinationPath ..\..\xpatek08_xgerge01_xtverd01_xpopos00.zip"
 
 # Clean all files that doesnt have to be submitted
-#REMOVE PYTHON CACHE
+#REMOVE PYTHON CACHE and .pyc files
 clean: 
 	if exist __pycache__ $(RMDIR) __pycache__
 	if exist .cache $(RMDIR) .cache
 	if exist gui/__pycache__ $(RMDIR) gui\__pycache__
+	if exist tests/__pycache__ $(RMDIR) tests\__pycache__
 	if exist documentation $(RMDIR) documentation
+	if exist ..\..\xpatek08_xgerge01_xtverd01_xpopos00 $(RMDIR) ..\..\xpatek08_xgerge01_xtverd01_xpopos00
+	del *.pyc tests\*.pyc gui\*.pyc 2>nul
 
 # Test math library using pytest
 # Testing only works on Linux (Ubuntu, WSL) - using pytest

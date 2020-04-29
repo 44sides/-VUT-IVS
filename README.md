@@ -1,5 +1,4 @@
 # IVS Projekt 2
--------------------
 Jednoduchá kalkulačka s vlastní matematickou knihovnou, GUI a instalátorem. Přiložen je také manuál a programová dokumentace.
 
 ### Instalace

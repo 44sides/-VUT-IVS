@@ -7,4 +7,4 @@ Podle změny stráveného času můžeme předpokládat, že na začátku seznam
 Také jsme si všimli, že čas strávený v Windowsu a Linuxu je různý. V Windowsu se tráví 3krat víc času než na Linuxu, protože ve Windowsu se volá víc funkcí.
 
 
-Pro optimizaci programu bych pokračoval v hledání problematických čísel pro mocninu, bych našel víc modulů pro načítání textu ze souboru a porovnal je, a bych zohledňoval v budoucnosti rozdíl mezi Windowsem a Linuxem.
+Pro optimizaci programu bych pokračoval v hledání problematických čísel pro mocninu, bych našel víc modulů pro načítání textu ze souboru, porovnal je a v budoucnosti bych zohledňoval rozdíl mezi Windowsem a Linuxem.

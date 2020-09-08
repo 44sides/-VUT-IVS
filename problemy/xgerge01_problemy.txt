@@ -1,0 +1,17 @@
+Komunikácia
+Úroveň aktivity nebola u všetkých rovnaká a pravidelná. 
+Nemali sme však nejaké konkrétne pravidlá komunikácie, tie mohli v niektorých prípadoch pomôcť.
+
+Python a Git
+Drobné problémy sa vyskytli pri inštalácii PyQt, pri práci s GUI a s funkcionalitami jazyka Python,
+ale tie sú skôr u každého jednotlivca iné. Každopádne sme všetky problémy spolu navzájom vyriešili.
+Chvíľu nám trvalo,kým sme sa git naučili dosatočne používať a všetko v repozitári uvádzať prehladne.
+
+Termíny
+Niektoré deadlines sa posunuli, kvôli neodstatku času ku koncu. 
+Každopádne sme naše plány viacmenej dodržali.
+
+Aktivita
+U každého jedntlivca bola aktivita iná a zároveň sa menila, podľa toho, kto mal koľko času.
+Každopádne chvíľami sme boli všetci aktívny a zapájali sme sa do práce ostatných a 
+pomáhali so skúsenostami, ktoré sme získali počas práce na projekte alebo už skôr.

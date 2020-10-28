@@ -1,0 +1,23 @@
+-Terminy
+Kdy jsme zacali implementovat controller, uvedomili jsme si, ze jsme tento bod podcenili.
+Konecne byl controller implementovan po celou dobu a jsme ztratili nas plan.
+Terminy byly stanoveny iracionalne. Poradi planu take nebylo dodrzeno, vsechno bylo zmatene. Nekdy jsem si myslel, ze nedokoncime vcas.
+
+Priciny: malo zkusenosti, nepochopeni ukolu.
+Reseni: definice konceptu ukolu planu, kladeni otazek o zadani. Po neuspesnem sestaveni planu udelat novy a provest nove rozdeleni.
+
+
+-Spoluprace
+Byla mala zodpovednost a zapojeni. Nektere ukoly dokoncili neprislusne clenove.
+Nakonec jsme vsichni spolecne rychle dokoncovali zbyvajici ukoly a opravovali mnoho chyb.
+
+Priciny: nedorozumeni, lenost.
+Reseni: spolecne uvazovani kazdeho bodu planu. Uceni vsech konceptu vsemi cleny.
+
+
+-Aktivita
+Predmet mel malou prioritu. Kdyz jsme ztratili nas plan, psali jsme malo do chatu a nemluvili o dalsich krocich.
+V komunikaci doslo k velkym prestavkam. O problemu maleho mnozstvi casu se nemluvilo.
+
+Priciny: nejistota, nedostatek iniciativy. Cas prideleny predmetu.
+Reseni: rizeni casu pro venovani vice casu predmetu. Setkani ve skutecnosti.

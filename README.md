@@ -1,6 +1,10 @@
 # IVS Projekt 2
 Jednoduchá kalkulačka s vlastní matematickou knihovnou, GUI a instalátorem. Přiložen je také manuál a programová dokumentace.
 
+<p align="center">
+  <img width="317" height="465" alt="screenshot" src="https://github.com/user-attachments/assets/ef563379-aa77-4c35-863e-2cd0f9464ca6" />
+</p>
+
 ### Instalace
 ---------------------
 Kalkulačka se instaluje spuštěním instalátoru `setup.exe`. Dále postupujte podle pokynů v instalátoru. Všechno potřebné je zahrnuto v instalačním programu.      
